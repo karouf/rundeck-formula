@@ -1,0 +1,4 @@
+---
+driver:
+  http_proxy: <%= ENV['http_proxy'] %>
+  https_proxy: <%= ENV['https_proxy'] %>

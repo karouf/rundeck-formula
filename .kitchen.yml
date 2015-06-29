@@ -1,0 +1,20 @@
+---
+driver: docker
+driver_config:
+  use_sudo: false
+
+platforms:
+  - name: centos-6.6
+    driver_config:
+      dockerfile: Dockerfile
+
+provisioner:
+  name: salt_solo
+  formula: rundeck
+  state_top:
+    base:
+      '*':
+        - rundeck
+
+suites:
+  - name: default
