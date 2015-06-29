@@ -1,5 +1,7 @@
 FROM centos:centos6
 RUN echo proxy=<%= ENV['http_proxy'] %> >> /etc/yum.conf
+RUN echo export http_proxy=<%= ENV['http_proxy'] %> >> /etc/profile.d/proxy.sh
+RUN echo export https_proxy=<%= ENV['http_proxy'] %> >> /etc/profile.d/proxy.sh
 RUN yum clean all
 RUN yum install -y sudo openssh-server openssh-clients which curl
 RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''

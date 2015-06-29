@@ -1,2 +1,7 @@
-no_state_yet:
-  test.succeed_without_changes
+rundeck-repo:
+  pkg.installed:
+    - sources:
+      - rundeck-repo: http://repo.rundeck.org/latest.rpm
+
+rundeck:
+  pkg.installed
