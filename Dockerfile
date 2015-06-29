@@ -3,7 +3,7 @@ RUN echo proxy=<%= ENV['http_proxy'] %> >> /etc/yum.conf
 RUN echo export http_proxy=<%= ENV['http_proxy'] %> >> /etc/profile.d/proxy.sh
 RUN echo export https_proxy=<%= ENV['http_proxy'] %> >> /etc/profile.d/proxy.sh
 RUN yum clean all
-RUN yum install -y sudo openssh-server openssh-clients which curl
+RUN yum install -y sudo openssh-server openssh-clients which curl java-1.7.0-openjdk
 RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
 RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''
 RUN if ! getent passwd kitchen; then useradd -d /home/kitchen -m -s /bin/bash kitchen; fi

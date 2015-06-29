@@ -5,3 +5,7 @@ rundeck-repo:
 
 rundeck:
   pkg.installed
+
+rundeckd:
+  service.running:
+    - enable: True
