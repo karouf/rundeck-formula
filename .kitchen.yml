@@ -2,6 +2,7 @@
 driver: docker
 driver_config:
   use_sudo: false
+  forward: 4440:4440
 
 platforms:
   - name: centos-6.6
