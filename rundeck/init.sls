@@ -15,3 +15,8 @@ rundeck-users:
     - name: /etc/rundeck/realm.properties
     - source: salt://rundeck/files/realm.properties
     - template: jinja
+
+/etc/rundeck/rundeck-config.properties:
+  file.managed:
+    - source: salt://rundeck/files/rundeck-config.properties
+    - template: jinja

@@ -23,6 +23,7 @@ provisioner:
           - rundeck
     rundeck.sls:
       rundeck:
+        host: rundeck.local
         users:
           admin:
             password: admin
