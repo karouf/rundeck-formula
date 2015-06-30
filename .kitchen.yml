@@ -16,6 +16,23 @@ provisioner:
     base:
       '*':
         - rundeck
+  pillars:
+    top.sls:
+      base:
+        '*':
+          - rundeck
+    rundeck.sls:
+      rundeck:
+        users:
+          admin:
+            password: admin
+            groups:
+              - user
+              - admin
+          user:
+            password: passwd
+            groups:
+              - user
 
 suites:
   - name: default
