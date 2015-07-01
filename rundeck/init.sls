@@ -20,3 +20,8 @@ rundeck-users:
   file.managed:
     - source: salt://rundeck/files/rundeck-config.properties
     - template: jinja
+
+/etc/rundeck/project.properties:
+  file.managed:
+    - source: salt://rundeck/files/project.properties
+    - template: jinja
