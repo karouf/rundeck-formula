@@ -1,12 +1,22 @@
 rundeck:
-  host: rundeck.acme.com
+  ## Default values
+  host: localhost
+  port: 4440
+  projects:
+    storage: filesystem
+    dir: /var/rundeck/projects
+    resources_file: resources.xml
+
+  # Manage users
   users:
     admin:
+      # Using MD5 hashed password
       password: MD5:21232f297a57a5a743894a0e4a801fc3
       groups:
         - admin
         - user
     user:
+      # Using plain text password
       password: plaintextpassword
       groups:
         - user
