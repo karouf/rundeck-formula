@@ -31,6 +31,7 @@ suites:
         rundeck.sls:
           rundeck:
             host: rundeck.local
+            port: 80
             projects:
               storage: db
               dir: /home/rundeck/projects
