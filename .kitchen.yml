@@ -27,16 +27,21 @@ provisioner:
         projects:
           dir: /home/rundeck/projects
           resources_file: resources.yml
-        users:
-          admin:
-            password: admin
-            groups:
-              - user
-              - admin
-          user:
-            password: passwd
-            groups:
-              - user
 
 suites:
   - name: default
+  - name: config
+    provisioner:
+      pillars:
+        rundeck.sls:
+          rundeck:
+            users:
+              admin:
+                password: admin
+                groups:
+                  - user
+                  - admin
+              user:
+                password: passwd
+                groups:
+                  - user

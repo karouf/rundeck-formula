@@ -14,8 +14,7 @@ describe file('/etc/rundeck/realm.properties') do
   it { should be_mode 644 }
   it { should be_owned_by 'rundeck' }
   it { should be_grouped_into 'rundeck' }
-  its(:content) { should match /^admin:admin,user,admin$/ }
-  its(:content) { should match /^user:passwd,user$/ }
+  its(:sha256sum) { should eq 'a8704e4844b6d2e8ce40baa3dc737ab62c2e13afc09ca9330908ecf8939d48d6' }
 end
 
 describe file('/etc/rundeck/rundeck-config.properties') do
