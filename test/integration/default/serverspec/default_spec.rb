@@ -33,9 +33,9 @@ describe file('/etc/rundeck/project.properties') do
   it { should be_mode 644 }
   it { should be_owned_by 'rundeck' }
   it { should be_grouped_into 'rundeck' }
-  its(:content) { should match /^project.dir = \/home\/rundeck\/projects\/\$\{project\.name\}$/ }
-  its(:content) { should match /^project.etc.dir = \/home\/rundeck\/projects\/\$\{project\.name\}\/etc$/ }
-  its(:content) { should match /^project.resources.file = \/home\/rundeck\/projects\/\$\{project\.name\}\/etc\/resources\.yml$/ }
+  its(:content) { should match /^project.dir = \/var\/rundeck\/projects\/\$\{project\.name\}$/ }
+  its(:content) { should match /^project.etc.dir = \/var\/rundeck\/projects\/\$\{project\.name\}\/etc$/ }
+  its(:content) { should match /^project.resources.file = \/var\/rundeck\/projects\/\$\{project\.name\}\/etc\/resources\.xml$/ }
 end
 
 describe file('/etc/rundeck/jaas-loginmodule.conf') do

@@ -22,10 +22,6 @@ provisioner:
         '*':
           - rundeck
     rundeck.sls:
-      rundeck:
-        projects:
-          dir: /home/rundeck/projects
-          resources_file: resources.yml
 
 suites:
   - name: default
@@ -35,6 +31,10 @@ suites:
         rundeck.sls:
           rundeck:
             host: rundeck.local
+            projects:
+              storage: db
+              dir: /home/rundeck/projects
+              resources_file: resources.yml
             users:
               admin:
                 password: admin
