@@ -22,7 +22,7 @@ describe file('/etc/rundeck/rundeck-config.properties') do
   it { should be_mode 644 }
   it { should be_owned_by 'rundeck' }
   it { should be_grouped_into 'rundeck' }
-  its(:content) { should match /^grails.serverURL = http:\/\/rundeck.local:4440$/ }
+  its(:content) { should match /^grails.serverURL = http:\/\/localhost:4440$/ }
   its(:content) { should match /^rundeck.projectsStorageType = filesystem$/ }
   its(:content) { should match /rundeck.security.useHMacRequestTokens = true/ }
   its(:content) { should match /rundeck.security.apiCookieAccess.enabled = true/ }

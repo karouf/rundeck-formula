@@ -23,7 +23,6 @@ provisioner:
           - rundeck
     rundeck.sls:
       rundeck:
-        host: rundeck.local
         projects:
           dir: /home/rundeck/projects
           resources_file: resources.yml
@@ -35,6 +34,7 @@ suites:
       pillars:
         rundeck.sls:
           rundeck:
+            host: rundeck.local
             users:
               admin:
                 password: admin
