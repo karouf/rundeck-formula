@@ -7,7 +7,7 @@ Available states
 .. contents::
     :local:
 
- ``rundeck``
- -----------
+``rundeck``
+-----------
 
- Install Rundeck RPM package from rundeck.org
+Install Rundeck RPM package from rundeck.org
