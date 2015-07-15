@@ -1,11 +1,12 @@
 rundeck:
   ## Default values
-  host: localhost
-  port: 4440
-  projects:
-    storage: filesystem
-    dir: /var/rundeck/projects
-    resources_file: resources.xml
+  config:
+    host: localhost
+    port: 4440
+    projects:
+      storage: filesystem
+      dir: /var/rundeck/projects
+      resources_file: resources.xml
 
   # Manage users
   users:
