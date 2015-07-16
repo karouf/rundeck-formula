@@ -47,3 +47,15 @@ suites:
                 password: passwd
                 groups:
                   - user
+  - name: projects-default
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - rundeck
+            - rundeck.projects
+      pillars:
+        rundeck.sls:
+          rundeck:
+            projects:
+              my-project:
