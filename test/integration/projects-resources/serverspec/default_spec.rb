@@ -37,3 +37,16 @@ describe file('/var/rundeck/projects/url/etc/project.properties') do
   its(:content) { should match /resources\.source\.2\.config\.timeout = 1800/ }
   its(:content) { should match /resources\.source\.2\.config\.cache = false/ }
 end
+
+describe file('/var/rundeck/projects/stub/etc/project.properties') do
+  it { should be_file }
+  its(:content) { should match /resources\.source\.1\.type = stub/ }
+  its(:content) { should match /resources\.source\.1\.config\.prefix = node/ }
+  its(:content) { should match /resources\.source\.1\.config\.count = 1/ }
+  its(:content) { should match /resources\.source\.1\.config\.tags = stub/ }
+  its(:content) { should match /resources\.source\.2\.type = stub/ }
+  its(:content) { should match /resources\.source\.2\.config\.prefix = fake/ }
+  its(:content) { should match /resources\.source\.2\.config\.suffix = really/ }
+  its(:content) { should match /resources\.source\.2\.config\.count = 2/ }
+  its(:content) { should match /resources\.source\.2\.config\.tags = fake/ }
+end

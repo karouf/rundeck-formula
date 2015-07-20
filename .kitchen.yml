@@ -92,3 +92,11 @@ suites:
                     url: http://localhost/nodes2.xml
                     timeout: 1800
                     cache: False
+              stub:
+                resources:
+                  - source: stub
+                  - source: stub
+                    prefix: fake
+                    suffix: really
+                    count: 2
+                    tags: fake

@@ -4,3 +4,7 @@ script:
 url:
   timeout: 30
   cache: True
+stub:
+  prefix: node
+  count: 1
+  tags: stub
