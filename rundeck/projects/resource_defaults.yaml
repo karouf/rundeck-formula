@@ -1,3 +1,6 @@
 script:
   format: resourcexml
   quote_interpreter_args: False
+url:
+  timeout: 30
+  cache: True

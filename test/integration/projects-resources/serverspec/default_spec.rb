@@ -25,3 +25,15 @@ describe file('/var/rundeck/projects/script/etc/project.properties') do
   its(:content) { should match /resources\.source\.2\.config\.args = nodes/ }
   its(:content) { should match /resources\.source\.2\.config\.argsQuoted = true/ }
 end
+
+describe file('/var/rundeck/projects/url/etc/project.properties') do
+  it { should be_file }
+  its(:content) { should match /resources\.source\.1\.type = url/ }
+  its(:content) { should match /resources\.source\.1\.config\.url = http\\\:\/\/localhost\/nodes\.xml/ }
+  its(:content) { should match /resources\.source\.1\.config\.timeout = 30/ }
+  its(:content) { should match /resources\.source\.1\.config\.cache = true/ }
+  its(:content) { should match /resources\.source\.2\.type = url/ }
+  its(:content) { should match /resources\.source\.2\.config\.url = http\\\:\/\/localhost\/nodes2\.xml/ }
+  its(:content) { should match /resources\.source\.2\.config\.timeout = 1800/ }
+  its(:content) { should match /resources\.source\.2\.config\.cache = false/ }
+end

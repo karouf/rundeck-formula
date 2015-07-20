@@ -84,3 +84,11 @@ suites:
                     interpreter: /bin/sh
                     args: nodes
                     quote_interpreter_args: True
+              url:
+                resources:
+                  - source: url
+                    url: http://localhost/nodes.xml
+                  - source: url
+                    url: http://localhost/nodes2.xml
+                    timeout: 1800
+                    cache: False
