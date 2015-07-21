@@ -89,3 +89,26 @@ suites:
                     suffix: really
                     count: 2
                     tags: fake
+              pillar:
+                resources:
+                  - source: pillar
+                    nodes:
+                      rundeck-server:
+                        hostname: 127.0.0.1
+                        username: rundeck
+                      another-server:
+                        hostname: 127.0.0.2
+                        username: admin
+                        description: Another server
+                        tags: server,test
+                        osFamily: unix
+                        osArch: amd64
+                        osName: Linux
+                        osVersion: 3.16.0-0.bpo.4-amd64
+                        custom: attribute
+                      server-with-tags-list:
+                        hostname: 127.0.0.3
+                        username: user
+                        tags:
+                          - dev
+                          - proto

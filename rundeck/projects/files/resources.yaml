@@ -1,0 +1,10 @@
+{% for nodename, node in nodes.iteritems() %}
+{{ nodename }}:
+  {% for key, value in node.iteritems() %}
+  {% if key == 'tags' and value is sequence and value is not string %}
+  {{ key }}: {{ value | join(',') }}
+  {% else %}
+  {{ key }}: {{ value }}
+  {% endif %}
+  {% endfor %}
+{% endfor %}

@@ -28,4 +28,18 @@
       project_name: {{ name }}
       project: {{ project_defaults }}
 
+{% for resource in project_defaults.resources %}
+{% if resource.source == 'pillar' %}
+/var/rundeck/projects/{{ name }}/etc/resources.yaml:
+  file.managed:
+    - user: rundeck
+    - group: rundeck
+    - mode: 664
+    - source: salt://rundeck/projects/files/resources.yaml
+    - template: jinja
+    - defaults:
+      nodes: {{ resource.nodes }}
+{% endif %}
+{% endfor %}
+
 {% endfor %}

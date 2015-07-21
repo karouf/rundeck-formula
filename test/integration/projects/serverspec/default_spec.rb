@@ -82,3 +82,37 @@ describe file('/var/rundeck/projects/stub/etc/project.properties') do
   its(:content) { should match /resources\.source\.2\.config\.count = 2/ }
   its(:content) { should match /resources\.source\.2\.config\.tags = fake/ }
 end
+
+describe file('/var/rundeck/projects/pillar/etc/project.properties') do
+  it { should be_file }
+  its(:content) { should match /resources\.source\.1\.type = file/ }
+  its(:content) { should match /resources\.source\.1\.config\.format = resourceyaml/ }
+  its(:content) { should match /resources\.source\.1\.config\.file = \/var\/rundeck\/projects\/\$\{project\.name\}\/etc\/resources\.yaml/ }
+  its(:content) { should match /resources\.source\.1\.config\.includeServerNode = true/ }
+  its(:content) { should match /resources\.source\.1\.config\.generateFileAutomatically = true/ }
+  its(:content) { should match /resources\.source\.1\.config\.requireFileExists = true/ }
+end
+
+describe file('/var/rundeck/projects/pillar/etc/resources.yaml') do
+  it { should be_file }
+  it { should be_owned_by 'rundeck' }
+  it { should be_grouped_into 'rundeck' }
+  it { should be_mode 664 }
+  its(:content) { should match /rundeck-server:/ }
+  its(:content) { should match /hostname: 127\.0\.0\.1/ }
+  its(:content) { should match /username: rundeck/ }
+  its(:content) { should match /another-server:/ }
+  its(:content) { should match /hostname: 127\.0\.0\.2/ }
+  its(:content) { should match /username: admin/ }
+  its(:content) { should match /description: Another server/ }
+  its(:content) { should match /tags: server,test/ }
+  its(:content) { should match /osFamily: unix/ }
+  its(:content) { should match /osArch: amd64/ }
+  its(:content) { should match /osName: Linux/ }
+  its(:content) { should match /osVersion: 3.16.0-0.bpo.4-amd64/ }
+  its(:content) { should match /custom: attribute/ }
+  its(:content) { should match /server-with-tags-list:/ }
+  its(:content) { should match /hostname: 127\.0\.0\.3/ }
+  its(:content) { should match /username: user/ }
+  its(:content) { should match /tags: dev,proto/ }
+end
