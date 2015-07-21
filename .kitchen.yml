@@ -22,15 +22,6 @@ provisioner:
         '*':
           - rundeck
     rundeck.sls:
-      rundeck:
-        config:
-          host: <%= require 'socket'; Socket.ip_address_list[1].ip_address %>
-        users:
-         test:
-           password: test
-           groups:
-             - user
-             - admin
 
 suites:
   - name: default
