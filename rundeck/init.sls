@@ -9,6 +9,8 @@ rundeck:
 rundeckd:
   service.running:
     - enable: True
+    - watch:
+      - file: /etc/rundeck/realm.properties
 
 rundeck-users:
   file.managed:
