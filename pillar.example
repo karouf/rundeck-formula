@@ -75,5 +75,10 @@ rundeck:
           suffix:
           count: 1
           tags: stub
+        - source: pillar
+          nodes:
+            my-server:
+              hostname: 192.168.0.1
+              username: rundeck
       node_executor: script
       file_copier: script
