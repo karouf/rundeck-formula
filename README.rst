@@ -12,6 +12,11 @@ Available states
 
 Install Rundeck RPM package from rundeck.org
 
+``rundeck.jobs``
+-----------
+
+Loads jobs into projects from a specified directory and following mappings given in pillar data.
+
 Formula Dependencies
 ====================
 

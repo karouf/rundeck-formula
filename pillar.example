@@ -82,3 +82,20 @@ rundeck:
               username: rundeck
       node_executor: script
       file_copier: script
+
+  # Map jobs to projects
+  jobs:
+    directory: /var/rundeck/jobs
+    format: xml
+    map:
+      my-project:
+        simple-job
+        some-directory:
+          containing-a-job
+      another-project:
+        really:
+          really:
+            really:
+              deeply:
+                nested:
+                  job

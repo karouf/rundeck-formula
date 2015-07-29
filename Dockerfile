@@ -12,3 +12,29 @@ RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 RUN mkdir -p /etc/sudoers.d
 RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/kitchen
 RUN chmod 0440 /etc/sudoers.d/kitchen
+RUN mkdir -p /var/rundeck/jobs/nested
+RUN echo -e "<joblist>\n\
+  <job>\n\
+    <sequence keepgoing='false' strategy='node-first'>\n\
+      <command>\n\
+        <exec>echo simple-job</exec>\n\
+      </command>\n\
+    </sequence>\n\
+    <loglevel>INFO</loglevel>\n\
+    <name>simple-job</name>\n\
+    <description></description>\n\
+  </job>\n\
+</joblist>" > /var/rundeck/jobs/simple-job.xml
+RUN echo -e "<joblist>\n\
+  <job>\n\
+    <sequence keepgoing='false' strategy='node-first'>\n\
+      <command>\n\
+        <exec>echo nested-job</exec>\n\
+      </command>\n\
+    </sequence>\n\
+    <loglevel>INFO</loglevel>\n\
+    <name>job</name>\n\
+    <description></description>\n\
+    <group>nested</group>\n\
+  </job>\n\
+</joblist>" > /var/rundeck/jobs/nested/job.xml
