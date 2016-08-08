@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+ruby '2.2.5'
 
 group :integration do
   gem 'test-kitchen', '~> 1.4.0'
