@@ -11,7 +11,7 @@ end
 
 describe file('/etc/rundeck/realm.properties') do
   it { should be_file }
-  it { should be_mode 644 }
+  it { should be_mode 0640 }
   it { should be_owned_by 'rundeck' }
   it { should be_grouped_into 'rundeck' }
   its(:sha256sum) { should eq 'a8704e4844b6d2e8ce40baa3dc737ab62c2e13afc09ca9330908ecf8939d48d6' }
@@ -19,7 +19,7 @@ end
 
 describe file('/etc/rundeck/rundeck-config.properties') do
   it { should be_file }
-  it { should be_mode 644 }
+  it { should be_mode 0640 }
   it { should be_owned_by 'rundeck' }
   it { should be_grouped_into 'rundeck' }
   its(:content) { should match /^grails.serverURL = http:\/\/localhost:4440$/ }
@@ -30,7 +30,7 @@ end
 
 describe file('/etc/rundeck/project.properties') do
   it { should be_file }
-  it { should be_mode 644 }
+  it { should be_mode 0640 }
   it { should be_owned_by 'rundeck' }
   it { should be_grouped_into 'rundeck' }
   its(:content) { should match /^project.dir = \/var\/rundeck\/projects\/\$\{project\.name\}$/ }
@@ -40,7 +40,7 @@ end
 
 describe file('/etc/rundeck/jaas-loginmodule.conf') do
   it { should be_file }
-  it { should be_mode 644 }
+  it { should be_mode 0640 }
   it { should be_owned_by 'rundeck' }
   it { should be_grouped_into 'rundeck' }
   its(:content) { should match /RDpropertyfilelogin/ }

@@ -10,7 +10,7 @@ Available states
 ``rundeck``
 -----------
 
-Install Rundeck RPM package from rundeck.org
+Install Rundeck package from rundeck.org
 
 ``rundeck.jobs``
 -----------
