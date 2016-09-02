@@ -1,0 +1,10 @@
+{% set rundeck = salt['grains.filter_by']({
+    'Debian': {
+        'mirror_url': 'deb http://dl.bintray.com/rundeck/rundeck-deb /',
+        'gpgkey': 'https://bintray.com/user/downloadSubjectPublicKey?username=bintray',
+    },
+    'RedHat': {
+        'mirror_url': 'https://dl.bintray.com/rundeck/rundeck-rpm',
+        'gpgkey': 'https://bintray.com/user/downloadSubjectPublicKey?username=bintray',
+    },
+}, merge=salt['pillar.get']('rundeck:lookup')) %}
